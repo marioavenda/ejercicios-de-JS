@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios JS Básicos - IES Juan Bosco</title>
+</head>
+<body>
+    <h1>Ejercicios de JavaScript - Primer Año</h1>
+
+    <p>
+        <button onclick="ejercicioClave()">Ejercicio 9.1.5 - Comparar Claves</button>
+    </p>
+
+    <p>
+        <button onclick="ejercicioSueldo()">Ejercicio 9.1.7 - Aumento de Sueldo</button>
+    </p>
+
+    <script>
+        function ejercicioClave() {
+            let clave1 = prompt("Ingrese la clave:");
+            let clave2 = prompt("Ingrese la clave nuevamente:");
+
+            if (clave1 == clave2) {
+                alert("Las claves son iguales");
+            }
+
+            if (clave1 != clave2) {
+                alert("Las claves son diferentes");
+            }
+
+        }
+
+        function ejercicioSueldo() {
+            let sueldo = +prompt("Ingrese el sueldo del operario:");
+            let antiguedad = +prompt("Ingrese los años de antigüedad:");
+
+            if (sueldo < 500 && antiguedad >= 10) {
+                sueldo = sueldo * 1.2;
+                alert("Se aplicó un aumento del 20%. Su sueldo a pagar es: " + sueldo);
+            }
+
+            if (sueldo < 500 && antiguedad < 10) {
+                sueldo = sueldo * 1.05;
+                alert("Se aplicó un aumento del 5%. Su sueldo a pagar es: " + sueldo);
+            }
+
+            if (sueldo >= 500) {
+                alert("Su sueldo es muy alto, no puede recibir aumento. Su sueldo sigue siendo " + sueldo);
+            }
+        }
+    </script>
+</body>
+</html>
