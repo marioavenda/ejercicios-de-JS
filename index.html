@@ -5,17 +5,50 @@
     <title>Ejercicios JS Básicos - IES Juan Bosco</title>
 </head>
 <body>
-    <h1>Ejercicios de JavaScript - Primer Año</h1>
+    <h1>Ejercicios de JavaScript: Calculo de Nomina </h1>
+    <form action="">
+        <p>
+        <label for="sueldo">Sueldo actual:</label>
+        <input type="number" name="sueldo" id="sueldo">
+        </p>
+        <p>
+        <label for="antiguedad">Antiguedad:</label>
+        <input type="number" name="antiguedad" id="antiguedad">
+        </p>
+        <div id="display">
 
+        </div>
+    </form>
     <p>
         <button onclick="ejercicioClave()">Ejercicio 9.1.5 - Comparar Claves</button>
     </p>
-
+    <p>
+        <button onclick="calculaNominaFormulario()">Calcula Nómina Formulario</button>
+    </p>
     <p>
         <button onclick="ejercicioSueldo()">Ejercicio 9.1.7 - Aumento de Sueldo</button>
     </p>
 
     <script>
+        function calculaNominaFormulario(){
+            let x=document.getElementById("sueldo").value;
+            let y=document.getElementById("antiguedad").value;
+            let nuevoSueldo = calculaNomina(x,y)
+            //alert("nuevoSueldo")//
+            document.getElementById("display").innerHTML="Nuevo sueldo: " + nuevoSueldo
+
+        }
+        function calculaNomina(sueldo,antiguedad){
+            if ( sueldo<500 && antiguedad>=10 ){
+                return sueldo * 1.20;
+            }
+            if ( sueldo<500 && antiguedad<10 ){
+                return sueldo * 1.05
+            }
+            if ( sueldo>=500){
+                return sueldo
+            }
+        }
         function ejercicioClave() {
             let clave1 = prompt("Ingrese la clave:");
             let clave2 = prompt("Ingrese la clave nuevamente:");
@@ -31,22 +64,10 @@
         }
 
         function ejercicioSueldo() {
-            let sueldo = +prompt("Ingrese el sueldo del operario:");
-            let antiguedad = +prompt("Ingrese los años de antigüedad:");
-
-            if (sueldo < 500 && antiguedad >= 10) {
-                sueldo = sueldo * 1.2;
-                alert("Se aplicó un aumento del 20%. Su sueldo a pagar es: " + sueldo);
-            }
-
-            if (sueldo < 500 && antiguedad < 10) {
-                sueldo = sueldo * 1.05;
-                alert("Se aplicó un aumento del 5%. Su sueldo a pagar es: " + sueldo);
-            }
-
-            if (sueldo >= 500) {
-                alert("Su sueldo es muy alto, no puede recibir aumento. Su sueldo sigue siendo " + sueldo);
-            }
+            let s=prompt("Ingrese el sueldo del operario:");
+            let a=prompt("Ingrese los años de antigüedad:");
+            let nuevoSueldo = calculaNomina(s,a)
+            alert("El nuevo sueldo es " + nuevoSueldo)
         }
     </script>
 </body>
